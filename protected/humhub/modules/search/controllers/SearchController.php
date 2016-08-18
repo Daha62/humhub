@@ -127,7 +127,7 @@ class SearchController extends Controller
 
         if ($pageSize) {
             if ($page > 1) {
-                $offset = ($page-1) * $pageSize;
+                $offset = ($page - 1) * $pageSize;
                 $posts = array_slice($posts, $offset, $pageSize);
             } else {
                 $posts = array_slice($posts, 0, $pageSize);

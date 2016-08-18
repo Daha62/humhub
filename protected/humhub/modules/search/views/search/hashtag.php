@@ -2,7 +2,7 @@
 
 use yii\helpers\Url;
 use yii\helpers\Html;
-    use humhub\modules\content\components\ContentActiveRecord;
+use humhub\modules\content\components\ContentActiveRecord;
 use humhub\modules\content\components\ContentContainerActiveRecord;
 ?>
 <div class="container">
@@ -34,14 +34,10 @@ use humhub\modules\content\components\ContentContainerActiveRecord;
                         class="panel-heading"><?php echo Yii::t('SearchModule.views_search_hashtag', '{n, plural, =1{Found {n, number} post} =other{Found {n, number} posts}}', ['n' => count($results)]); ?></div>
                 </div>
             </div>
-
             <div class="col-md-10">
-
                 <div class="searchResults">
-
                     <?php if (count($results) > 0): ?>
                         <?php foreach ($results as $result): ?>
-
                             <?php if ($result instanceof ContentActiveRecord || $result instanceof ContentContainerActiveRecord) : ?>
                                 <?php echo $result->getWallOut(); ?>
                             <?php else: ?>
@@ -49,8 +45,6 @@ use humhub\modules\content\components\ContentContainerActiveRecord;
                             <?php endif; ?>
                         <?php endforeach; ?>
                     <?php else: ?>
-
-
                         <div class="panel panel-default">
                             <div class="panel-body">
                                 <p><strong><?php echo Yii::t('SearchModule.views_search_index', 'Your search returned no matches.'); ?></strong></p>
@@ -58,15 +52,12 @@ use humhub\modules\content\components\ContentContainerActiveRecord;
                         </div>
                     <?php endif; ?>
                 </div>
-
                 <div
                     class="pagination-container"><?php echo humhub\widgets\LinkPager::widget(['pagination' => $pagination]); ?></div>
                 <br><br>
             </div>
-
         </div>
     <?php endif; ?>
-
 </div>
 
 <script type="text/javascript">
@@ -80,4 +71,3 @@ use humhub\modules\content\components\ContentContainerActiveRecord;
     });
     $(".searchResults").highlight("<?php echo Html::encode($keyword); ?>", {wordsOnly: true});
 </script>
-
